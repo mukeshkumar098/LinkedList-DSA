@@ -133,6 +133,7 @@
 
 
 
+// delete node any possion 
 
 class Node {
     constructor(data) {
