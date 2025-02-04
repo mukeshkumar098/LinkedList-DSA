@@ -229,9 +229,9 @@ console.log(obj)
 // var a=10;
 
 
-let a="20";
-let b=29
-console.log(a)
+// let a="20";
+// let b=29
+// console.log(a)
 
 
 // function count(n){
@@ -275,41 +275,41 @@ console.log(a)
 // console.log(4<6<7)
 
 
-class node {
-  constructor(data){
-      this.data=data;
-      this.next=null;
+// class node {
+//   constructor(data){
+//       this.data=data;
+//       this.next=null;
       
-  }
+//   }
   
-}
+// }
 
-const a=new  node(1)
-const b=new  node(2)
-const c=new  node(3)
-const d=new  node(4)
-const e=new  node(5)
-const f=new  node(6)
+// const a=new  node(1)
+// const b=new  node(2)
+// const c=new  node(3)
+// const d=new  node(4)
+// const e=new  node(5)
+// const f=new  node(6)
 
-a.next=b;
-b.next=c;
-c.next=d;
-d.next=e;
-e.next=f
+// a.next=b;
+// b.next=c;
+// c.next=d;
+// d.next=e;
+// e.next=f
 
-let head=a
-let current=head;
-while(current.next.next.next!==null){
-   current=current.next;
-}
+// let head=a
+// let current=head;
+// while(current.next.next.next!==null){
+//    current=current.next;
+// }
 
-//  console.log(current.data)
-current.next=null
-current=head;
-while(current!==null){
-   console.log(current.data)
-        current=current.next;
-}
+// //  console.log(current.data)
+// current.next=null
+// current=head;
+// while(current!==null){
+//    console.log(current.data)
+//         current=current.next;
+// }
 
 
 //  if(head!=null){

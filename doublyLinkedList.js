@@ -69,6 +69,71 @@
 
 
 // Q:- insert node any position
+// class Node {
+//     constructor(data) {
+//         this.data = data;
+//         this.prev = null;
+//         this.next = null;
+//     }
+// }
+
+// let a = new Node(1);
+// let b = new Node(2);
+// let c = new Node(3);
+// let d = new Node(4);
+
+// a.next = b;
+// b.prev = a;
+// b.next = c;
+// c.prev = b;
+// c.next = null;
+
+// let head = a;
+
+// function insertAtPosition(head, data, position) {
+//     let newNode = new Node(data);
+    
+//     if (position === 0) { // Insert at the head
+//         newNode.next = head;
+//         if (head) head.prev = newNode;
+//         head = newNode;
+//         return head;
+//     }
+
+//     let temp = head;
+//     let count = 0;
+
+//     while (temp !== null && count < position - 1) {
+//         temp = temp.next;
+//         count++;
+//     }
+
+//     if (temp === null) {
+//         console.log("Position out of bounds");
+//         return head;
+//     }
+
+//     newNode.next = temp.next;
+//     newNode.prev = temp;
+//     if (temp.next !== null) {
+//         temp.next.prev = newNode;
+//     }
+//     temp.next = newNode;
+    
+//     return head;
+// }
+
+// head = insertAtPosition(head, 5, 2);
+
+// let current = head;
+// while (current !== null) {
+//     console.log(current.data);
+//     current = current.next;
+// }
+
+
+
+
 class Node {
     constructor(data) {
         this.data = data;
@@ -86,49 +151,42 @@ a.next = b;
 b.prev = a;
 b.next = c;
 c.prev = b;
-c.next = null;
+c.next = d;
+d.prev = c;
 
 let head = a;
 
-function insertAtPosition(head, data, position) {
-    let newNode = new Node(data);
-    
-    if (position === 0) { // Insert at the head
-        newNode.next = head;
-        if (head) head.prev = newNode;
-        head = newNode;
+function deleteList(head, value) {
+    if (!head) return null;
+
+    if (head.data === value) {
+        head = head.next;
+        if (head) head.prev = null; 
         return head;
     }
 
-    let temp = head;
-    let count = 0;
-
-    while (temp !== null && count < position - 1) {
-        temp = temp.next;
-        count++;
+    let current = head;
+    while (current.next && current.next.data !== value) {
+        current = current.next;
     }
 
-    if (temp === null) {
-        console.log("Position out of bounds");
-        return head;
+
+    if (current.next) {
+        let nodeToDelete = current.next;
+        current.next = nodeToDelete.next;
+        
+        if (nodeToDelete.next) { 
+            nodeToDelete.next.prev = current;
+        }
     }
 
-    newNode.next = temp.next;
-    newNode.prev = temp;
-    if (temp.next !== null) {
-        temp.next.prev = newNode;
-    }
-    temp.next = newNode;
-    
     return head;
 }
 
-head = insertAtPosition(head, 5, 2);
+head = deleteList(head, 3);
 
 let current = head;
 while (current !== null) {
     console.log(current.data);
     current = current.next;
 }
-
-
